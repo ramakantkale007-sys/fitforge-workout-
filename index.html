@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FitForge — Workout smarter</title>
+<style>
+:root{--bg:#0b0e0c;--panel:#141a16;--panel2:#1c251f;--lime:#c4f36a;--text:#f5f7f2;--muted:#a5b0a7;--line:#2a352d;--red:#ff7c7c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#263b20 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer;border:0}a{color:inherit}.shell{max-width:1200px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:21px;letter-spacing:.5px}.logo{background:var(--lime);color:#10150c;border-radius:12px;width:42px;height:42px;display:grid;place-items:center;font-size:23px}.brand span{color:var(--lime)}.pill{border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 12px;font-size:12px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}.panel{background:linear-gradient(145deg,#19221b,#121713);border:1px solid var(--line);border-radius:22px;padding:24px}.eyebrow{color:var(--lime);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.05;letter-spacing:-1.8px;margin:12px 0}.hero p{color:var(--muted);max-width:540px}.btn{border-radius:12px;padding:12px 17px;font-weight:800;transition:.15s}.primary{background:var(--lime);color:#10150c}.secondary{background:#263229;color:var(--text);border:1px solid #3b4b3e}.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}.hero-art{display:flex;flex-direction:column;justify-content:space-between;min-height:250px;background:linear-gradient(150deg,#273b23,#172019 70%);position:relative;overflow:hidden}.big-icon{font-size:100px;line-height:1;text-align:right;opacity:.9}.statline{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.stat{background:#111712;border:1px solid var(--line);padding:10px 13px;border-radius:12px;min-width:110px}.stat b{display:block;font-size:21px}.stat small{color:var(--muted)}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 14px}.sectionhead h2{margin:0;font-size:22px}.sectionhead p{margin:3px 0 0;color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.workout{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:11px}.workout .symbol{height:54px;width:54px;border-radius:15px;background:#283724;display:grid;place-items:center;font-size:28px}.workout h3{margin:0;font-size:18px}.workout p{margin:0;color:var(--muted);font-size:13px;min-height:40px}.meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:12px}.tag{background:#222d24;padding:5px 8px;border-radius:8px}.workout button{margin-top:auto}.lower{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.rowitem{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.rowitem:last-child{border:0}.muted{color:var(--muted)}.bar{height:9px;background:#28322a;border-radius:99px;overflow:hidden;margin-top:8px}.bar span{display:block;height:100%;width:0;background:var(--lime);border-radius:99px;transition:width .3s}.empty{color:var(--muted);padding:10px 0}.footer{color:#778279;text-align:center;font-size:12px;padding:28px 0 8px}.modalback{position:fixed;inset:0;background:#000b;display:none;place-items:center;padding:18px;z-index:5}.modalback.show{display:grid}.modal{background:#121813;border:1px solid var(--line);border-radius:22px;padding:24px;width:min(520px,100%);max-height:90vh;overflow:auto}.modal h2{margin:4px 0 8px}.exercise{padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.exercise:last-child{border:0}.timer{font-size:42px;font-weight:900;color:var(--lime);font-variant-numeric:tabular-nums}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.close{float:right;background:transparent;color:var(--muted);font-size:22px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--lime);color:#11170c;font-weight:800;padding:12px 18px;border-radius:12px;display:none;z-index:10}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero-art{min-height:170px}.big-icon{font-size:70px}.cards{grid-template-columns:1fr 1fr}.lower{grid-template-columns:1fr}}
+@media(max-width:520px){.shell{padding:14px}.top{align-items:flex-start}.brand{font-size:18px}.cards{grid-template-columns:1fr}.panel{padding:18px}.hero h1{font-size:36px}.sectionhead{align-items:flex-start;flex-direction:column}}
+</style>
+<link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#0b0e0c"><link rel="icon" href="./icons/icon-192.png" type="image/png"></head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="brand"><div class="logo">⚡</div><div>FIT<span>FORGE</span><div class="muted" style="font-size:10px;letter-spacing:2px;font-weight:700">TRAIN WITH PURPOSE</div></div></div>
+    <div class="pill">● WORKOUT DEMO · DATA SAVED ON THIS DEVICE</div>
+  </header>
+  <section class="hero">
+    <div class="panel">
+      <div class="eyebrow">Your fitness starts here</div>
+      <h1>Show up.<br><span style="color:var(--lime)">Get stronger.</span></h1>
+      <p>Simple plans, guided sessions, and progress you can actually track. Build a habit one workout at a time.</p>
+      <button class="btn primary" onclick="openWorkout('Full Body Basics')">Start today's workout ↗</button>
+      <div class="statline">
+        <div class="stat"><b id="totalWorkouts">0</b><small>Workouts done</small></div>
+        <div class="stat"><b id="totalMinutes">0</b><small>Minutes trained</small></div>
+        <div class="stat"><b id="weekCount">0/3</b><small>Weekly goal</small></div>
+      </div>
+    </div>
+    <div class="panel hero-art">
+      <div><div class="eyebrow">Consistency over perfection</div><h2 style="font-size:25px;max-width:240px;margin:10px 0">Your next rep is a fresh start.</h2></div>
+      <div class="big-icon">🏋️</div>
+      <div class="muted">Move at your own pace. Rest when needed.</div>
+    </div>
+  </section>
+  <div class="sectionhead"><div><h2>Choose your workout</h2><p>Pick a session that fits your day.</p></div><div class="pill">3 STARTER PLANS</div></div>
+  <section class="cards" id="workoutCards"></section>
+  <section class="lower">
+    <div class="panel">
+      <div class="sectionhead" style="margin:0 0 12px"><div><h2>Weekly activity</h2><p>Your completed sessions</p></div></div>
+      <div id="weeklySummary" class="empty">Complete a workout to start building your history.</div>
+      <div class="bar"><span id="weeklyBar"></span></div>
+    </div>
+    <div class="panel">
+      <div class="sectionhead" style="margin:0 0 12px"><div><h2>Recent workouts</h2><p>Stored on this device</p></div><button class="btn secondary" onclick="clearHistory()" style="padding:8px 10px;font-size:12px">Reset demo</button></div>
+      <div id="history"><div class="empty">No workouts yet. Choose a plan above to begin.</div></div>
+    </div>
+  </section>
+  <div class="footer">FITFORGE · Starter prototype · Not medical advice · Stop if you feel pain or unwell.</div>
+</div>
+<div class="modalback" id="modalback" onclick="backdropClose(event)">
+  <div class="modal">
+    <button class="close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="eyebrow">Workout session</div><h2 id="modalTitle">Workout</h2><p class="muted" id="modalSub"></p>
+    <div id="exerciseList"></div>
+    <div style="margin-top:18px"><div class="muted" style="font-size:12px">REST TIMER</div><div class="timer" id="timer">01:00</div><div class="actions"><button class="btn secondary" onclick="startTimer()">Start timer</button><button class="btn secondary" onclick="resetTimer()">Reset timer</button></div></div>
+    <div class="actions"><button class="btn primary" onclick="completeWorkout()">✓ Mark workout complete</button><button class="btn secondary" onclick="closeModal()">Not now</button></div>
+    <p class="muted" style="font-size:12px;margin-top:14px">Use comfortable resistance and controlled form. Exercise suggestions are general examples; choose suitable alternatives and seek qualified guidance if needed.</p>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const plans=[
+ {name:"Full Body Basics",icon:"🏋️",level:"Beginner",duration:25,desc:"A balanced introduction to strength and movement.",exercises:[["Bodyweight squat","2 sets × 8–10 reps"],["Wall or incline push-up","2 × 8 reps"],["Glute bridge","2 × 10 reps"],["Bird dog","2 × 8 each side"],["Easy walk","5 minutes"]]},
+ {name:"Upper Body Builder",icon:"💪",level:"Beginner",duration:30,desc:"A simple upper-body session with easy modifications.",exercises:[["Incline push-up","2 sets × 8 reps"],["Resistance-band row","2 × 10 reps"],["Light shoulder press","2 × 8 reps"],["Biceps curl","2 × 10 reps"],["Gentle shoulder mobility","3 minutes"]]},
+ {name:"Lower Body & Mobility",icon:"🦵",level:"Beginner",duration:25,desc:"Build a movement habit with a controlled lower-body session.",exercises:[["Chair squat","2 sets × 8 reps"],["Glute bridge","2 × 10 reps"],["Calf raise","2 × 10 reps"],["Bird dog","2 × 8 each side"],["Gentle leg mobility","4 minutes"]]}
+];
+let activePlan=null, seconds=60, timerInterval=null;
+function getHistory(){try{return JSON.parse(localStorage.getItem("fitforgeHistory")||"[]")}catch(e){return []}}
+function saveHistory(h){localStorage.setItem("fitforgeHistory",JSON.stringify(h))}
+function renderCards(){document.getElementById("workoutCards").innerHTML=plans.map(p=>`<article class="workout"><div class="symbol">${p.icon}</div><div><div class="eyebrow">${p.level}</div><h3>${p.name}</h3></div><p>${p.desc}</p><div class="meta"><span class="tag">◷ ${p.duration} min</span><span class="tag">▤ ${p.exercises.length} movements</span></div><button class="btn secondary" onclick="openWorkout('${p.name}')">View workout →</button></article>`).join("")}
+function openWorkout(name){activePlan=plans.find(p=>p.name===name)||plans[0];document.getElementById("modalTitle").textContent=activePlan.name;document.getElementById("modalSub").textContent=`${activePlan.duration} minutes · ${activePlan.level} · Take breaks as needed`;document.getElementById("exerciseList").innerHTML=activePlan.exercises.map((e,i)=>`<div class="exercise"><div><b>${i+1}. ${e[0]}</b><div class="muted" style="font-size:12px">${e[1]}</div></div><span style="color:var(--lime)">✓</span></div>`).join("");resetTimer();document.getElementById("modalback").classList.add("show")}
+function closeModal(){document.getElementById("modalback").classList.remove("show");stopTimer()}
+function backdropClose(e){if(e.target.id==="modalback")closeModal()}
+function stopTimer(){if(timerInterval)clearInterval(timerInterval);timerInterval=null}
+function startTimer(){if(timerInterval)return;timerInterval=setInterval(()=>{seconds--;if(seconds<=0){seconds=0;stopTimer();showToast("Rest timer finished — check how you feel.")}updateTimer()},1000);updateTimer()}
+function resetTimer(){stopTimer();seconds=60;updateTimer()}
+function updateTimer(){document.getElementById("timer").textContent=String(Math.floor(seconds/60)).padStart(2,"0")+":"+String(seconds%60).padStart(2,"0")}
+function completeWorkout(){if(!activePlan)return;let h=getHistory();h.unshift({name:activePlan.name,minutes:activePlan.duration,date:new Date().toISOString()});saveHistory(h.slice(0,100));closeModal();renderStats();showToast("Workout saved. Nice work!")}
+function renderStats(){const h=getHistory();document.getElementById("totalWorkouts").textContent=h.length;document.getElementById("totalMinutes").textContent=h.reduce((s,x)=>s+x.minutes,0);const now=new Date();const week=h.filter(x=>{let d=new Date(x.date);return d.getTime()>now.getTime()-7*86400000});document.getElementById("weekCount").textContent=Math.min(week.length,3)+"/3";document.getElementById("weeklySummary").textContent=week.length?`${week.length} session${week.length===1?"":"s"} completed in the last 7 days. Keep your routine flexible and sustainable.`:"Complete a workout to start building your history.";document.getElementById("weeklyBar").style.width=Math.min(week.length/3*100,100)+"%";document.getElementById("history").innerHTML=h.length?h.slice(0,5).map(x=>`<div class="rowitem"><div><b>${escapeHtml(x.name)}</b><div class="muted" style="font-size:12px">${new Date(x.date).toLocaleDateString(undefined,{month:"short",day:"numeric"})}</div></div><span class="tag">${x.minutes} min</span></div>`).join(""):'<div class="empty">No workouts yet. Choose a plan above to begin.</div>'}
+function clearHistory(){if(confirm("Clear this device's demo workout history?")){saveHistory([]);renderStats();showToast("Demo history cleared.")}}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",2400)}
+renderCards();renderStats();
+</script>
+<script>
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(err => console.warn("Offline support unavailable:", err)));
+}
+</script></body></html>
